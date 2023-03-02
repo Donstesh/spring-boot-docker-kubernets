@@ -38,27 +38,50 @@ class UserServiceTest {
     }
 
     @Test
-    @Disabled
     void saveUser() {
+        //given
+        String userName = "Joy Ruth";
+        Users users = new Users(
+                1,
+                userName,
+                "TECH",
+                "7627 TZ"
+        );
         //when
-        userService.saveUser(new Users());
-        //then
-        Users Users;
-        verify(usersRepository).save(users);
+        userService.saveUser(users);
     }
 
     @Test
-    @Disabled
     void updateUser() {
+        //given
+        String userName = "Joy Ruth";
+        Users users = new Users(
+                1,
+                userName,
+                "TECH2",
+                "7627 TZ"
+        );
+        //when
+        userService.updateUser(users);
     }
 
     @Test
-    @Disabled
     void findById() {
+        Long id = 1L;
+        //when
+        userService.findById(id);
+        //then
+        verify(usersRepository).findById(id);
     }
 
     @Test
-    @Disabled
     void deleteUser() {
+        Long id = 1L;
+
+        //when
+        userService.deleteUser(id);
+        //then
+        verify(usersRepository).deleteById(id);
+
     }
 }
